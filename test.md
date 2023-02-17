@@ -1,10 +1,10 @@
 
-  # Test App
-  [![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)
+  # Test
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
   ## Description 
 
-  this is a test of my readme builder 
+  this is a test 
 
   ## Table of Contents
 
@@ -17,15 +17,15 @@
 
   ## Installation 
 
-  there are none. www.github.com/Tobyking13
+  there are some
 
   ## Usage
 
-  ![Test App](assets/nebula.jpg "Test App");
+  ![Test](assets/nebula.jpg "Test");
 
   ## Licence
 
-  [![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
   ## Contributing
 
@@ -36,6 +36,9 @@
   none
 
   ## Questions
+  
+  
+  My GitHub profile: https://github.com/Tobyking13
 
   If you have any questions about this application pleas email: tobyking13@gmail.com and I will get back to you as soon as possible.
 

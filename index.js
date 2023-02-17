@@ -52,9 +52,16 @@ const questions = [
     }, {
         type: 'text',
         message: 'Please provide an email address:',
-        name: 'questions'
+        name: 'email'
+    }, {
+        type: 'text',
+        message: 'Please provide your GitHub username:',
+        name: 'username'
     }
 ];
+
+// add if statement for usage if user wants to include screenshot
+// create functionality for multiple contributers. App will ask for usernames and program will show links to their profiles
 
 // function to write README file
 function writeToFile(fileName, data) {
