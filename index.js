@@ -24,10 +24,35 @@ const questions = [
         message: 'Please tell me the install requirements:',
         name: 'installation'
     }, {
+        type: 'text',
+        message: 'Please provide a link to a screenshot (relative path) of the application:',
+        name: 'usage'
+    }, {
         type: 'list',
         message: 'What licence do you use:',
         name: 'licence',
-        choices: ['MIT', 'NONE']
+        choices: [
+            'Apache License 2.0', 
+            'GNU General Public Licence v3.0', 
+            'MIT', 'BSD 2-Clause \"Simplified\" Licence', 
+            'BSD 3-Clause \"New\" or \"Revised\" Licence', 
+            'Boost Software License 1.0', 
+            'Creative Commons Zero v1.0 Universal', 
+            'Eclipse Public License 2.0', 
+            'Mozilla Public License 2.0', 
+            'NONE']
+    }, {
+        type: 'text',
+        message: 'Please provide any infomation regarding contributors',
+        name: 'contributing'
+    }, {
+        type: 'text',
+        message: 'Please tell me infomation about this applications test process:',
+        name: 'tests'
+    }, {
+        type: 'text',
+        message: 'Please provide an email address:',
+        name: 'questions'
     }
 ];
 
