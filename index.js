@@ -5,6 +5,9 @@ const generateMarkdown = require("./utils/generateMarkdown");
 
 // project title
 // sections entitled => Description, Table of Contents (bulletpoints), Installation, Usage, Licence, Contributing, Tests, Questions 
+// add badges
+// get 
+
 
 // array of questions for user
 const questions = [
@@ -30,9 +33,7 @@ const questions = [
 
 // function to write README file
 function writeToFile(fileName, data) {
-   // console.log(`README Name: ${fileName}`);
-    console.log(data)
-    fs.writeFile(fileName, JSON.stringify(data, null, '\t'), (err) => 
+    fs.writeFile(fileName, generateMarkdown(data), (err) => 
         err ? console.error(err) : console.log('readme.md created.')
     )
 }
@@ -42,7 +43,7 @@ function init() {
     inquirer
     .prompt(questions)
     .then((data) => {
-        const fileName = `${data.title.toLowerCase().split(' ').join('')}.readme.md`;
+        const fileName = `${data.title.toLowerCase().split(' ').join('')}.md`;
         writeToFile(fileName, data);
     })
 }
