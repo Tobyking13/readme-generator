@@ -37,6 +37,9 @@ function generateMarkdown(data) {
  
   // sections entitled => Description, Table of Contents (bulletpoints), Installation, Usage, Licence, Contributing, Tests, Questions 
 
+  // add badges at top, contributors, issues etc
+  // add badges on technologies used
+
   return `
   # ${data.title}
   ${badge}
@@ -60,11 +63,11 @@ function generateMarkdown(data) {
 
   ## Usage
 
-  ![${data.title}](${data.usage} \"${data.title}\");
+  ![${data.title}](${data.usage} \"${data.title}\")
 
   ## Licence
 
-  ${badge}
+  This project is licensed under the ${data.licence} license.
 
   ## Contributing
 
@@ -75,24 +78,11 @@ function generateMarkdown(data) {
   ${data.tests}
 
   ## Questions
-  
-  
-  My GitHub profile: https://github.com/${data.username}
 
-  If you have any questions about this application pleas email: ${data.email} and I will get back to you as soon as possible.
+  If you have any questions about this application pleas email: ${data.email} and I will get back to you as soon as possible. You can find more of my work over on GitHub: https://github.com/${data.username}
 
   `;
 }
 
 module.exports = generateMarkdown;
 
-
-// console.log(data)
-//     const title = `# ${data.title}`;
-//     const horizontalRule = `---`
-//     const description = `## Description <br> ${data.description}`;
-
-//     const mdFile = 
-//     `${title} 
-//     ${description}
-//     `
