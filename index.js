@@ -25,17 +25,19 @@ const questions = [
         type: 'checkbox',
         message: 'Please tell me the technologies used for this project:',
         name: 'tech',
-        choices: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'jQuery', 'React']
+        choices: ['HTML', 'CSS', 'JavaScript', 'Node', 'jQuery', 'React']
     }, 
     {
         type: 'text',
         message: 'Please tell me the install requirements:',
         name: 'installation'
-     }, {
+    }, 
+     {
         type: 'text',
         message: 'Please provide a link to a screenshot (relative path) of the application. Type \'none\' if there is no screenshot:',
         name: 'screenshot'
-     }, {
+     },
+      {
         type: 'text',
         message: 'please explain to me how to use the application',
         name: 'usage'

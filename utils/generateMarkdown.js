@@ -1,45 +1,29 @@
 // function to generate markdown for README
 function generateMarkdown(data) {
   let badge;
+  let contributionBadge;
   let userContributionArr = data.contributing.split(",");
   let userArr = [];
   let i = 0;
   let screenshot;
-  let techArr = [];
+  let techArr = [];          
 
-  if (data.tech.includes("HTML") === true) {
-    techArr.push(
-      ` <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" style="width:5%"> `
-    );
+  const tech = {
+    HTML: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+    CSS: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+    JavaScript: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg',
+    Node: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+    jQuery: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg',
+    React: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
   }
-  if (data.tech.includes("CSS") === true) {
-    techArr.push(
-      ` <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" style="width:5%"> `
-    );
+  for(let [key, value] of Object.entries(tech)) {      
+    if(data.tech.includes(key) === true) {
+      techArr.push(` <img src="${value}" alt="${key}" style="width:5%"> `);
+    }
   }
-  if (data.tech.includes("JavaScript") === true) {
-    techArr.push(
-      ` <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" alt="JavaScript" style="width:5%"> `
-    );
-  }
-  if (data.tech.includes("Node.js") === true) {
-    techArr.push(
-      ` <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" style="width:5%"> `
-    );
-  }
-  if (data.tech.includes("jQuery") === true) {
-    techArr.push(
-      ` <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original-wordmark.svg" alt="jQuery" style="width:5%"> `
-    );
-  }
-  if (data.tech.includes("React") === true) {
-    techArr.push(
-      ` <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" style="width:5%"> `
-    );
-  }
-
   techArr = techArr.toString().replaceAll(",", "");
 
+ //simplify
   switch (data.licence) {
     case "Apache License 2.0":
       badge = `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`;
@@ -75,6 +59,7 @@ function generateMarkdown(data) {
 
   if (userContributionArr[0] === "none") {
     userArr = [`N/A`];
+    contributionBadge = "";
   } else {
     while (i < userContributionArr.length) {
       userArr.push(
@@ -84,6 +69,7 @@ function generateMarkdown(data) {
       );
       i++;
     }
+    contributionBadge = `[![Contribution badge](https://img.shields.io/badge/Contributions-${userContributionArr.length}-blue.svg)](#contributing)`;
     userArr = JSON.stringify(userArr);
     userArr = userArr.replaceAll('","', " ");
     userArr = userArr.replaceAll('["', " ");
@@ -91,20 +77,31 @@ function generateMarkdown(data) {
     userArr = userArr.trim();
   }
 
+
   if (data.screenshot === "none") {
-    screenshot = "none";
+    screenshot = "N/A";
   } else {
-    screenshot = `![${data.title}](${data.screenshot} \"${data.title}\")`;
+    screenshot = `<img src="${data.screenshot}" alt="${data.title}" style="width:50%"></img>`;
   }
 
+  
   // sections entitled => Description, Table of Contents (bulletpoints), Installation, Usage, Licence, Contributing, Tests, Questions
 
   // add badges at top, contributors, issues etc
   // add badges on technologies used
 
+
+  // ADD CONTRIBUTING BADGE AND ISSUES BADGE
+
+ // ${contributionBadge}
   return `
   # ${data.title}
+
   ${techArr}
+
+  ${badge} ${contributionBadge}
+
+  <hr>
 
   ## Description 
 
@@ -146,8 +143,10 @@ function generateMarkdown(data) {
 
   ## Questions
 
-  If you have any questions about this application pleas email: ${data.email} and I will get back to you as soon as possible. You can find more of my work over on GitHub: https://github.com/${data.username}
-
+  If you have any questions about this application pleas email: ${data.email} and I will get back to you as soon as possible. 
+  
+  You can find more of my work over on GitHub: https://github.com/${data.username}.
+  
   `;
 }
 
