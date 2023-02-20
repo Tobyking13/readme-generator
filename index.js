@@ -35,15 +35,16 @@ const questions = [
         type: 'text',
         message: 'please explain to me how to use the application',
         name: 'usage'
-     },{
+     },
+     {
         type: 'list',
         message: 'What licence do you use:',
         name: 'licence',
         choices: [
             'Apache License 2.0', 
             'GNU General Public Licence v3.0', 
-            'MIT', 'BSD 2-Clause \"Simplified\" Licence', 
-            'BSD 3-Clause \"New\" or \"Revised\" Licence', 
+            'MIT', 'BSD 2-Clause \"Simplified\" ', 
+            'BSD 3-Clause \"New\" or \"Revised\" ', 
             'Boost Software License 1.0', 
             'Creative Commons Zero v1.0 Universal', 
             'Eclipse Public License 2.0', 
