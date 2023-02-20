@@ -3,12 +3,6 @@ const path = require('path');
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
-// project title
-// sections entitled => Description, Table of Contents (bulletpoints), Installation, Usage, Licence, Contributing, Tests, Questions 
-// add badges
-// get 
-
-
 // array of questions for user
 const questions = [
      {
@@ -91,7 +85,7 @@ function init() {
     inquirer
     .prompt(questions)
     .then((data) => {
-        const fileName = `${data.title.toLowerCase().split(' ').join('')}.md`;
+        const fileName = `${data.title.toLowerCase().split(' ').join('')}_README.md`;
         writeToFile(fileName, data);
     })
 }

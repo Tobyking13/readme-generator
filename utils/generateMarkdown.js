@@ -1,29 +1,38 @@
 // function to generate markdown for README
 function generateMarkdown(data) {
-  let badge;
+  
   let contributionBadge;
   let userContributionArr = data.contributing.split(",");
   let userArr = [];
   let i = 0;
-  let screenshot;
-  let techArr = [];          
+            
 
-  const tech = {
-    HTML: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
-    CSS: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-    JavaScript: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg',
-    Node: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-    jQuery: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg',
-    React: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
-  }
-  for(let [key, value] of Object.entries(tech)) {      
-    if(data.tech.includes(key) === true) {
-      techArr.push(` <img src="${value}" alt="${key}" style="width:5%"> `);
+  tech = () => {
+    let techArr = [];
+    const tech = {
+      HTML: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+      CSS: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+      JavaScript: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg',
+      Node: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+      jQuery: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg',
+      React: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
     }
+    for(let [key, value] of Object.entries(tech)) {      
+      if(data.tech.includes(key) === true) {
+        techArr.push(` <img src="${value}" alt="${key}" style="width:5%"> `);
+      }
+    }
+    techArr = techArr.toString().replaceAll(",", "");
+    return techArr;
   }
-  techArr = techArr.toString().replaceAll(",", "");
+
+  
 
  //simplify
+
+  badge = () => {
+    let badge;
+  
   switch (data.licence) {
     case "Apache License 2.0":
       badge = `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`;
@@ -56,7 +65,10 @@ function generateMarkdown(data) {
       badge = `No badge available`;
       break;
   }
+  return badge;
+}
 
+  
   if (userContributionArr[0] === "none") {
     userArr = [`N/A`];
     contributionBadge = "";
@@ -77,29 +89,22 @@ function generateMarkdown(data) {
     userArr = userArr.trim();
   }
 
-
-  if (data.screenshot === "none") {
-    screenshot = "N/A";
-  } else {
-    screenshot = `<img src="${data.screenshot}" alt="${data.title}" style="width:50%"></img>`;
+  screenshot = () => {
+    let screenshot;
+    if (data.screenshot === "none") {
+      return screenshot = "N/A";
+    } else {
+      return screenshot = `<img src="${data.screenshot}" alt="${data.title}" style="width:50%"></img>`;
+    }
   }
 
-  
-  // sections entitled => Description, Table of Contents (bulletpoints), Installation, Usage, Licence, Contributing, Tests, Questions
 
-  // add badges at top, contributors, issues etc
-  // add badges on technologies used
-
-
-  // ADD CONTRIBUTING BADGE AND ISSUES BADGE
-
- // ${contributionBadge}
   return `
   # ${data.title}
 
-  ${techArr}
+  ${tech()}
 
-  ${badge} ${contributionBadge}
+  ${badge()} ${contributionBadge}
 
   <hr>
 
@@ -114,7 +119,7 @@ function generateMarkdown(data) {
   - [Usage](#usage)
   - [Licence](#licence)
   - [Contributing](#contributing)
-  - [Tests](#test)
+  - [Tests](#tests)
   - [Questions](#questions)
 
   ## Installation 
@@ -123,7 +128,7 @@ function generateMarkdown(data) {
 
   ## Screenshot
 
-  ${screenshot}
+  ${screenshot()}
 
   ## Usage
 
