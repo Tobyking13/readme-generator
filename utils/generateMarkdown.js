@@ -113,9 +113,15 @@ function generateMarkdown(data) {
     if (data.screenshot === "none") {
       return (screenshot = "N/A");
     } else {
-      return (screenshot = `<img src="${data.screenshot}" alt="${data.title}" style="width:50%"></img>`);
+      return (screenshot = `<img src="${data.screenshot}" alt="${data.title}" style="width:65%"></img>`);
     }
   };
+
+// CHANGE CONTRIBUTE TO CREDITS
+// CHANGE CONTRIBUTE TO HOW TO IMPROVE PROJECT
+// USe a decent screenshot
+// put questions in bulletpoints
+
 
   return `
   # ${data.title}
@@ -140,31 +146,31 @@ function generateMarkdown(data) {
   - [Tests](#tests)
   - [Questions](#questions)
 
-  ## Installation 
+  ### Installation 
 
   ${data.installation}
 
-  ## Screenshot
+  ### Screenshot
 
   ${screenshot()}
 
-  ## Usage
+  ### Usage
 
   ${data.usage}
 
-  ## Licence
+  ### Licence
 
   This project is licensed under the ${data.licence} license.
 
-  ## Contributing
+  ### Contributing
 
   ${userArr}
   
-  ## Tests
+  ### Tests
 
   ${data.tests}
 
-  ## Questions
+  ### Questions
 
   If you have any questions about this application pleas email: ${
     data.email
