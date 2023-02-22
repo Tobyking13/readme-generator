@@ -1,4 +1,4 @@
-# readme-generator
+# README.md Generator
 
 ## Description
 
@@ -15,7 +15,6 @@ This has been a great insight into using Node.js and seeing its capabilities. I 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
-- [Issues](#issues)
 
 ## Installation
 
